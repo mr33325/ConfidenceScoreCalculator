@@ -18,71 +18,68 @@
   </nav>
   
   <div class="container mt-5">
-    <div class="col">
-        <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Enter your data</h5>
-                <form>
-                <div class="form-group">
-                    <label for="attempted">Number of Attempted Questions:</label>
-                    <input type="number" class="form-control" id="attempted">
-                </div>
-                <div class="form-group">
-                    <label for="correct">Number of Correct Answers:</label>
-                    <input type="number" class="form-control" id="correct">
-                </div>
-                <div class="form-group">
-                    <label for="total">Total Number of Questions:</label>
-                    <input type="number" class="form-control" id="total">
-                </div>
-                <button type="button" class="btn btn-primary btn-block" onclick="calculateConfidence()">Calculate Confidence Score</button>
-                </form>
-            </div>
-            </div>
+    <div class="row justify-content-center">
+      <!-- First column for calculation -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Enter your data</h5>
+            <form>
+              <div class="form-group">
+                <label for="attempted">Number of Attempted Questions:</label>
+                <input type="number" class="form-control" id="attempted">
+              </div>
+              <div class="form-group">
+                <label for="correct">Number of Correct Answers:</label>
+                <input type="number" class="form-control" id="correct">
+              </div>
+              <div class="form-group">
+                <label for="total">Total Number of Questions:</label>
+                <input type="number" class="form-control" id="total">
+              </div>
+              <button type="button" class="btn btn-primary btn-block" onclick="calculateConfidence()">Calculate Confidence Score</button>
+            </form>
+          </div>
         </div>
-        </div>
-
-        <div class="row justify-content-center mt-4">
-        <div class="col-md-6">
-            <div class="card">
+        
+        <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Confidence Score</h5>
-                <div class="progress" style="height: 30px;">
+              <h5 class="card-title">Confidence Score</h5>
+              <div class="progress" style="height: 30px;">
                 <div id="confidenceBar" class="progress-bar" role="progressbar"></div>
-                </div>
-                <div class="d-flex justify-content-between mt-3">
+              </div>
+              <div class="d-flex justify-content-between mt-3">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-trophy text-warning mr-2"></i>
-                    <span id="confidenceScore">-</span>
+                  <i class="fas fa-trophy text-warning mr-2"></i>
+                  <span id="confidenceScore">-</span>
                 </div>
                 <div class="d-flex align-items-center">
-                    <i class="far fa-clock text-muted mr-2"></i>
-                    <span>Updated <span id="timestamp">-</span></span>
+                  <i class="far fa-clock text-muted mr-2"></i>
+                  <span>Updated <span id="timestamp">-</span></span>
                 </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-        <div class="container mt-5">
-            <!-- Your existing content -->
-            <div class="row justify-content-center">
-              <div class="col-md-6">
-                <canvas id="confidenceChart"></canvas>
               </div>
             </div>
         </div>
+      </div>
+      
+      <!-- Second column for chart -->
+      <div class="col-md-6">
+        
+        <!-- Chart -->
+        <div class="card mt-4">
+          <div class="card-body">
+            <canvas id="confidenceChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
