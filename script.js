@@ -1,13 +1,12 @@
+var doc_Loaded= false;
 document.addEventListener("DOMContentLoaded", function() {
     // This function will run when the document is loaded
     calculateConfidence();
-    displayChart();
   });
   
   document.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       calculateConfidence();
-      displayChart();
     }
   });
   
@@ -25,27 +24,33 @@ document.addEventListener("DOMContentLoaded", function() {
     if (isNaN(confidenceScore)) confidenceScore = 0;
   
     // Map confidence score to range 0-100
-    confidenceScore = mapRange(confidenceScore, 0, 100, 0, 100);
+    confidenceScore = mapRange(confidenceScore, 0, 100, 0, 10);
   
     // Save confidence data to localStorage
-    var confidenceData = localStorage.getItem("confidenceData");
-    if (!confidenceData) {
-      confidenceData = [];
-    } else {
-      confidenceData = JSON.parse(confidenceData);
+    if(doc_Loaded){
+      var confidenceData = localStorage.getItem("confidenceData");
+      if (!confidenceData) {
+        confidenceData = [];
+      } else {
+        confidenceData = JSON.parse(confidenceData);
+      }
+      confidenceData.push({
+        date: new Date().toISOString().split('T')[0], // Get today's date
+        score: confidenceScore
+      });
+      localStorage.setItem("confidenceData", JSON.stringify(confidenceData));
     }
-    confidenceData.push({
-      date: new Date().toISOString().split('T')[0], // Get today's date
-      score: confidenceScore
-    });
-    localStorage.setItem("confidenceData", JSON.stringify(confidenceData));
   
     // Update confidence score text and progress bar
     updateScoreAndBar(confidenceScore);
-  
+    displayChart();
+
     // Update timestamp
     var timestamp = new Date().toLocaleTimeString();
     document.getElementById("timestamp").innerText = timestamp;
+
+    // Update doc is loaded to true
+    doc_Loaded= true;
   }
   
   function updateScoreAndBar(confidenceScore) {
@@ -55,10 +60,10 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Update progress bar color based on confidence score
     var confidenceBar = document.getElementById("confidenceBar");
-    if (confidenceScore < 33) {
+    if (confidenceScore < 4) {
       confidenceBar.classList.remove("bg-warning", "bg-success");
       confidenceBar.classList.add("bg-danger");
-    } else if (confidenceScore < 67) {
+    } else if (confidenceScore < 7) {
       confidenceBar.classList.remove("bg-danger", "bg-success");
       confidenceBar.classList.add("bg-warning");
     } else {
@@ -68,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Trigger reflow before updating progress bar width to ensure animation
     confidenceBar.offsetWidth;
-  
+    var valueNow_Confidence_Score= mapRange(confidenceScore, 0, 10, 0, 100) ;
     // Update progress bar width and animate
-    confidenceBar.style.width = confidenceScore + "%";
+    confidenceBar.style.width = valueNow_Confidence_Score + "%";
     confidenceBar.style.transition = "width 0.5s ease-in-out";
   }
   
@@ -80,6 +85,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var scores = confidenceData.map(data => data.score);
   
     var ctx = document.getElementById('confidenceChart').getContext('2d');
+
+    var existingChart = Chart.getChart(ctx);
+
+    // If an existing chart instance is found, destroy it
+    if (existingChart) {
+        existingChart.destroy();
+    }
+  
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -90,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
           borderColor: 'rgb(75, 192, 192)',
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderWidth: 1,
-          tension: 0.2
+          tension: 0.4
         }]
       },
       options: {
@@ -98,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              max: 100
+              Max: 10
             }
           }]
         }
