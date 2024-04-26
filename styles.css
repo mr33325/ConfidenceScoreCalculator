@@ -1,0 +1,31 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .card {
+    border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .progress {
+    border-radius: 20px;
+  }
+  
+  #confidenceBar {
+    border-radius: 20px;
+    transition: width 0.5s;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .navbar-brand:hover {
+    color: #ffc107;
+  }
+  
