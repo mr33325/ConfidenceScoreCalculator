@@ -11,9 +11,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Confidence Score Calculator</a>
+  
+  <nav class="navbar navbar-dark bg-dark bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+          <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+        </svg>
+        Confidence Score Calculator
+      </a>
     </div>
   </nav>
   
@@ -21,21 +27,20 @@
     <div class="row justify-content-center">
       <!-- First column for calculation -->
       <div class="col-md-6">
-
-        <div class="card">
+        <div class="card mt-4">
+          <h5 class="card-header">Enter your data</h5>
           <div class="card-body">
-            <h5 class="card-title">Enter your data</h5>
             <form>
-              <div class="form-group">
-                <label for="attempted">Number of Attempted Questions:</label>
+              <div class="mb-3">
+                <label for="attempted">Number of Attempted Questions</label>
                 <input type="number" class="form-control" id="attempted">
               </div>
-              <div class="form-group">
-                <label for="correct">Number of Correct Answers:</label>
+              <div class="mb-3">
+                <label for="correct">Number of Correct Answers</label>
                 <input type="number" class="form-control" id="correct">
               </div>
-              <div class="form-group">
-                <label for="total">Total Number of Questions:</label>
+              <div class="mb-3">
+                <label for="total">Total Number of Questions</label>
                 <input type="number" class="form-control" id="total">
               </div>
               <button type="button" class="btn btn-primary btn-block" onclick="calculateConfidence()">Calculate Confidence Score</button>
@@ -43,7 +48,7 @@
           </div>
         </div>
         
-        <div class="card">
+        <div class="card mt-4">
             <div class="card-body">
               <h5 class="card-title">Confidence Score</h5>
               <div class="progress" style="height: 30px;">
@@ -61,7 +66,6 @@
               </div>
             </div>
         </div>
-        
       </div>
       
       <!-- Second column for chart -->

@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", function() {
           data: scores,
           borderColor: 'rgb(75, 192, 192)',
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderWidth: 1
+          borderWidth: 1,
+          tension: 0.2
         }]
       },
       options: {
