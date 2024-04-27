@@ -10,6 +10,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
   
+ 
+document.getElementById("resetButton").addEventListener("click", function() {
+  // Remove all data from local storage
+  localStorage.clear();
+
+  document.getElementById("confidenceScore").innerText = "-";
+  var confidenceBar = document.getElementById("confidenceBar");
+  confidenceBar.style.width = "0%";
+  confidenceBar.classList.remove("bg-danger", "bg-warning", "bg-success");
+  location.reload();
+});
+
   function calculateConfidence() {
     var attempted = parseInt(document.getElementById("attempted").value);
     var total = parseInt(document.getElementById("total").value);

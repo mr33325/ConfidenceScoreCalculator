@@ -1,6 +1,6 @@
 body {
-    background-color: #f8f9fa;
-    font-family: 'Arial', sans-serif;
+    background-color: rgb(36 46 60);
+    font-family: 'Roboto', sans-serif;
   }
   
   .card {
@@ -29,3 +29,33 @@ body {
     color: #ffc107;
   }
   
+  .reset-button {
+    width: 100%;
+}
+
+.btn-primary{
+  box-shadow: 0 4px 9px 0px rgba(0, 0, 0, .35);
+  background-color: rgb(57, 17, 69);
+  border-color: #e6d5d5;
+}
+
+.btn-primary:hover{
+  background-color: rgb(149 114 160);;
+  border-color: rgb(57, 17, 69);
+}
+
+.navbar{
+background-color: rgb(57, 17, 69);
+}
+
+.navbar a{
+  color: #f2f2f2;
+}
+
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgb(72 84 107);
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  color: white;
+}
