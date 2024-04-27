@@ -25,7 +25,7 @@ The Confidence Score Calculator is a browser-based tool that helps users assess 
 - Save confidence score history to local storage.
 
 ## How to Use
-
+P.S- You can follow the below steps or visit the site [https://mr33325.github.io/ConfidenceScoreCalculator/](https://mr33325.github.io/ConfidenceScoreCalculator/)
 1. Clone the repository:
    ```bash
    git clone https://github.com/mr33325/ConfidenceScoreCalculator.git
